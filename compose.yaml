@@ -1,0 +1,13 @@
+services:
+  proxy:
+    build: ./proxy
+    depends_on:
+      - app
+    ports:
+      - 9002:6080
+    command: --vnc app:5900
+
+  app:
+    build: ./app
+    volumes:
+      - ./app:/home/app
